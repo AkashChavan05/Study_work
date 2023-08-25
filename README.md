@@ -1,2 +1,2 @@
 # master
-Brand for study work and other stuff commit
+Branch for study work and other stuff commit
