@@ -3,6 +3,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain,SequentialChain
 from dotenv import load_dotenv
 
+load_dotenv()
 llm =  OpenAI(temperature=0.0)
 
 def generate_restaurant_name_and_iteams(cuisine):
