@@ -8,6 +8,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
+from langchain.chat_models import ChatOpenAI
 # from pyngrok import ngrok
 # import nest_asyncio
 
@@ -26,7 +27,7 @@ def get_text_chunks(text):
     # split the text data into chunks
     text_splitter = CharacterTextSplitter(
         separator="\n",
-        chunk_size=1000,
+        chunk_size=300,
         chunk_overlap=200,
         length_function=len
     )
@@ -44,8 +45,9 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     
+    llm =ChatOpenAI()
     # use llama model for vectore similarity 
-    llm = HuggingFaceHub(repo_id="meta-llama/Llama-2-13b-chat-hf", model_kwargs={"temperature":0.0, "max_length":512})
+    # llm = HuggingFaceHub(repo_id="WizardLM/WizardCoder-1B-V1.0", model_kwargs={"temperature":0.0, "max_length":512})
 
     # store chathistory use langchain memory
     memory = ConversationBufferMemory(
