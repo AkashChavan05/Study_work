@@ -1,0 +1,7 @@
+llama-index
+langchain
+streamlit
+transformers
+pathlib
+python-dotenv
+accelerate
